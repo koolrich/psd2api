@@ -1,4 +1,4 @@
-package com.kbc.psd2api.controllers;
+package com.kbc.psd2api.controllers.dtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
