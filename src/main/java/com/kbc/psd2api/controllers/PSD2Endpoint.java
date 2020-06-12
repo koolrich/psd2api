@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -51,7 +53,7 @@ public class PSD2Endpoint {
     }
 
     @GetMapping("/internal-access/consents/{consentId}")
-    public ResponseEntity<ConsentDetails> getConsentDetails(@PathVariable String consentId) {
+    public ResponseEntity<ConsentResponse> getConsentDetails(@PathVariable String consentId) {
 
         System.out.println("Get consent called with consentId: " + consentId);
 
@@ -66,7 +68,10 @@ public class PSD2Endpoint {
         consentDetails.setCreditorAccount(creditorAccount);
         consentDetails.setRemittanceInformation(remittanceInformation);
 
-        return ResponseEntity.ok(consentDetails);
+        ConsentResponse consentResponse = new ConsentResponse();
+        consentResponse.setConsentDetails(consentDetails);
+
+        return ResponseEntity.ok(consentResponse);
 
     }
 
@@ -129,6 +134,12 @@ public class PSD2Endpoint {
 
         return ResponseEntity.ok(accountDetails);
 
+    }
+
+    @PatchMapping("/internal-access/consents/{consentId}")
+    public ResponseEntity<?> authoriseConsent(@RequestBody AuthoriseConsentRequest authoriseConsentRequest, @PathVariable String consentId) {
+        System.out.println("Received request: " + authoriseConsentRequest.toString());
+        return ResponseEntity.ok("received");
     }
 
     private boolean isAllPresent(String... values) {
