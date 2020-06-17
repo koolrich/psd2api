@@ -64,7 +64,7 @@ public class PSD2Endpoint {
         RemittanceInformation remittanceInformation = new RemittanceInformation("Internal ops code 5120103", "FRESCO-037");
 
         consentDetails.setInstructedAmount(instructedAmount);
-        consentDetails.setLinkedAccounts(linkedAccounts);
+        //consentDetails.setLinkedAccounts(linkedAccounts);
         consentDetails.setCreditorAccount(creditorAccount);
         consentDetails.setRemittanceInformation(remittanceInformation);
 
@@ -136,11 +136,34 @@ public class PSD2Endpoint {
 
     }
 
-    @PatchMapping("/internal-access/consents/{consentId}")
-    public ResponseEntity<?> authoriseConsent(@RequestBody AuthoriseConsentRequest authoriseConsentRequest, @PathVariable String consentId) {
-        System.out.println("Received request: " + authoriseConsentRequest.toString());
-        return ResponseEntity.ok("received");
+    @GetMapping("/corppymnt")
+    public ResponseEntity<ValidatePaymentResponse> authoriseConsent() {
+        ValidatePaymentResponse validatePaymentResponse = new ValidatePaymentResponse();
+        ValidatePayment validatePayment = new ValidatePayment();
+        validatePayment.setDailyLimitCheckPassed("YES");
+        validatePayment.setMandateCheckPassed("NO");
+
+        List<ValidatePayment> validatePayments = new ArrayList<>();
+        validatePayments.add(validatePayment);
+
+        Map<String, Object> header = new HashMap<>();
+        Map <String, String> audit = new HashMap<>();
+
+        audit.put("T24_time", "4043");
+        audit.put("parse_time", "22");
+        header.put("audit", audit);
+        header.put("page_start", "1");
+        header.put("page_token", "52e21c07-761a-43c4-818d-7c32bbf4f6c3");
+        header.put("total_size", "2");
+        header.put("page_size", "99");
+
+        validatePaymentResponse.setHeader(header);
+        validatePaymentResponse.setBody(validatePayments);
+        
+        return ResponseEntity.ok(validatePaymentResponse);
     }
+
+
 
     private boolean isAllPresent(String... values) {
         for (String value : values) {
