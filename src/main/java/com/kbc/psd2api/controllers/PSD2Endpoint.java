@@ -141,7 +141,7 @@ public class PSD2Endpoint {
         ValidatePaymentResponse validatePaymentResponse = new ValidatePaymentResponse();
         ValidatePayment validatePayment = new ValidatePayment();
         validatePayment.setDailyLimitCheckPassed("YES");
-        validatePayment.setMandateCheckPassed("NO");
+        validatePayment.setMandateCheckPassed("YES");
 
         List<ValidatePayment> validatePayments = new ArrayList<>();
         validatePayments.add(validatePayment);
