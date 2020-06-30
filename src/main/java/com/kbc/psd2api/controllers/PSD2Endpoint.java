@@ -63,10 +63,22 @@ public class PSD2Endpoint {
         CreditorAccount creditorAccount = new CreditorAccount("IE55ICON99027011885911", "Bob Clements");
         RemittanceInformation remittanceInformation = new RemittanceInformation("Internal ops code 5120103", "FRESCO-037");
 
-        consentDetails.setInstructedAmount(instructedAmount);
+        List<String> permissions = new ArrayList<>();
+        permissions.add("READ.BALANCES");
+        permissions.add("READ.TRANSACTIONS.BASIC");
+        permissions.add("READ.TRANSACTIONS.DETAIL");
+        permissions.add("READ.ACCOUNTS.BASIC");
+        permissions.add("READ.ACCOUNTS.DETAIL");
+        permissions.add("READ.PAN");
+        permissions.add("READ.TRANSACTIONS.CREDITS");
+        permissions.add("READ.TRANSACTIONS.DEBITS");
+
+        consentDetails.setPermissions(permissions);
+
+        //consentDetails.setInstructedAmount(instructedAmount);
         //consentDetails.setLinkedAccounts(linkedAccounts);
-        consentDetails.setCreditorAccount(creditorAccount);
-        consentDetails.setRemittanceInformation(remittanceInformation);
+        //consentDetails.setCreditorAccount(creditorAccount);
+        //consentDetails.setRemittanceInformation(remittanceInformation);
 
         ConsentResponse consentResponse = new ConsentResponse();
         consentResponse.setConsentDetails(consentDetails);

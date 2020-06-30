@@ -35,6 +35,15 @@ public class ConsentDetails {
     @JsonProperty("Status")
     private String Status = "AWAITING.AUTHORISATION";
 
+    @JsonProperty("ExpirationDateTime")
+    private String ExpirationDateTime = "2020-09-09T07:58:51Z";
+
+    @JsonProperty("TransactionFromDateTime")
+    private String TransactionFromDateTime = "2020-08-09T07:58:51Z";
+
+    @JsonProperty("TransactionToDateTime")
+    private String TransactionToDateTime = "2020-09-09T07:58:51Z";
+
     @JsonProperty("PaymentSubType")
     private String PaymentSubType = "DomesticSingle";
 
@@ -42,12 +51,15 @@ public class ConsentDetails {
     private InstructedAmount instructedAmount;
 
     @JsonProperty("LinkedAccounts")
-    private List<LinkedAccount> linkedAccounts = new ArrayList<>();
+    private List<LinkedAccount> linkedAccounts;
 
     @JsonProperty("CreditorAccount")
     private CreditorAccount creditorAccount;
 
     @JsonProperty("RemittanceInformation")
     private RemittanceInformation remittanceInformation;
+
+    @JsonProperty("Permissions")
+    private List<String> permissions;
     
 }
