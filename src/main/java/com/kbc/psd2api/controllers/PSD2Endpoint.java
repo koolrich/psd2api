@@ -45,7 +45,7 @@ public class PSD2Endpoint {
 
         ValidateAuthorisationResponse validateAuthorisationResponse = new ValidateAuthorisationResponse();
         validateAuthorisationResponse.setClientId("2c7a008c946a11ea84800aee602f0000");
-        validateAuthorisationResponse.setConsentScope("payments");
+        validateAuthorisationResponse.setConsentScope("accounts");
         validateAuthorisationResponse.setTppApplicationName("Business Banking QA");
         validateAuthorisationResponse.setConsentId("CNS20112D98X59NM"); 
         
