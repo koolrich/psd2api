@@ -66,13 +66,13 @@ public class PSD2Endpoint {
 
         List<String> permissions = new ArrayList<>();
         permissions.add("READ.BALANCES");
-        permissions.add("READ.TRANSACTIONS.BASIC");
+        //permissions.add("READ.TRANSACTIONS.BASIC");
         permissions.add("READ.TRANSACTIONS.DETAIL");
         permissions.add("READ.ACCOUNTS.BASIC");
-        permissions.add("READ.ACCOUNTS.DETAIL");
+        //permissions.add("READ.ACCOUNTS.DETAIL");
         permissions.add("READ.PAN");
         permissions.add("READ.TRANSACTIONS.CREDITS");
-        permissions.add("READ.TRANSACTIONS.DEBITS");
+        //permissions.add("READ.TRANSACTIONS.DEBITS");
 
         consentDetails.setPermissions(permissions);
 
