@@ -75,12 +75,12 @@ public class PSD2Endpoint {
         permissions.add("READ.TRANSACTIONS.CREDITS");
         //permissions.add("READ.TRANSACTIONS.DEBITS");
 
-        consentDetails.setPermissions(permissions);
+        //consentDetails.setPermissions(permissions);
 
-        //consentDetails.setInstructedAmount(instructedAmount);
-        //consentDetails.setLinkedAccounts(linkedAccounts);
-        //consentDetails.setCreditorAccount(creditorAccount);
-        //consentDetails.setRemittanceInformation(remittanceInformation);
+        consentDetails.setInstructedAmount(instructedAmount);
+        consentDetails.setLinkedAccounts(linkedAccounts);
+        consentDetails.setCreditorAccount(creditorAccount);
+        consentDetails.setRemittanceInformation(remittanceInformation);
 
         ConsentResponse consentResponse = new ConsentResponse();
         consentResponse.setConsentDetails(consentDetails);
