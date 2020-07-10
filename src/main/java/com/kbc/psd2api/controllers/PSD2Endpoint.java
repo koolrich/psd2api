@@ -89,6 +89,12 @@ public class PSD2Endpoint {
 
     }
 
+    @PatchMapping("/internal-access/consents/{consentId}")
+    public ResponseEntity<?> authoriseConsent(@RequestBody AuthoriseConsentRequest authoriseConsentRequest, @PathVariable String consentId) {
+        System.out.println("Received request: " + authoriseConsentRequest.toString());
+        return ResponseEntity.ok("received");
+    }
+
     @GetMapping("/accounts")
     public ResponseEntity<AccountDetails> getAccounts() {
         AccountDetails accountDetails = new AccountDetails();
