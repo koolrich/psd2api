@@ -78,7 +78,7 @@ public class PSD2Endpoint {
         consentDetails.setPermissions(permissions);
 
         //consentDetails.setInstructedAmount(instructedAmount);
-        consentDetails.setLinkedAccounts(linkedAccounts);
+        //consentDetails.setLinkedAccounts(linkedAccounts);
         //consentDetails.setCreditorAccount(creditorAccount);
         //consentDetails.setRemittanceInformation(remittanceInformation);
 
