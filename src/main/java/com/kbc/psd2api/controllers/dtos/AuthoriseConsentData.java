@@ -27,5 +27,8 @@ public class AuthoriseConsentData {
 
     @JsonProperty("ExternalUserId")
     private String externalUserId;
+
+    @JsonProperty("Segment")
+    private String segment;
     
 }
