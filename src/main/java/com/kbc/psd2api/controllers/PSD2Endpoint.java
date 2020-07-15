@@ -58,8 +58,8 @@ public class PSD2Endpoint {
         System.out.println("Get consent called with consentId: " + consentId);
 
         ConsentDetails consentDetails = new ConsentDetails();
-        //consentDetails.setStatus("AUTHORISED");
-        consentDetails.setStatus("AWAITING.AUTHORISATION");
+        consentDetails.setStatus("AUTHORISED");
+        //consentDetails.setStatus("AWAITING.AUTHORISATION");
         //InstructedAmount instructedAmount = new InstructedAmount("20.00", "EUR");
         List<LinkedAccount> linkedAccounts = Arrays.asList(new LinkedAccount("CurrentAccount", "IE10ICON99027012173"), new LinkedAccount("SavingsAccount", "IE55ICON99027011885911"));
         //CreditorAccount creditorAccount = new CreditorAccount("IE55ICON99027011885911", "Bob Clements");
