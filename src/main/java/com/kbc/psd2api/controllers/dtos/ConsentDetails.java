@@ -21,7 +21,7 @@ public class ConsentDetails {
     private String ConsentId = "CNS2012032XDK3XW";
 
     @JsonProperty("ConsentScope")
-    private String ConsentScope = "accounts";
+    private String ConsentScope = "fundsconfirmations";
 
     @JsonProperty("TPPApplicationName")
     private String TPPApplicationName = "Business Banking QA";

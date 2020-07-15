@@ -61,24 +61,24 @@ public class PSD2Endpoint {
         //consentDetails.setStatus("AUTHORISED");
         consentDetails.setStatus("AWAITING.AUTHORISATION");
         //InstructedAmount instructedAmount = new InstructedAmount("20.00", "EUR");
-        //List<LinkedAccount> linkedAccounts = Arrays.asList(new LinkedAccount("CurrentAccount", "IE10ICON99027012173"), new LinkedAccount("SavingsAccount", "IE55ICON99027011885911"));
+        List<LinkedAccount> linkedAccounts = Arrays.asList(new LinkedAccount("CurrentAccount", "IE10ICON99027012173"), new LinkedAccount("SavingsAccount", "IE55ICON99027011885911"));
         //CreditorAccount creditorAccount = new CreditorAccount("IE55ICON99027011885911", "Bob Clements");
         //RemittanceInformation remittanceInformation = new RemittanceInformation("Internal ops code 5120103", "FRESCO-037");
 
-        List<String> permissions = new ArrayList<>();
-        permissions.add("READ.BALANCES");
+        //List<String> permissions = new ArrayList<>();
+        //permissions.add("READ.BALANCES");
         //permissions.add("READ.TRANSACTIONS.BASIC");
-        permissions.add("READ.TRANSACTIONS.DETAIL");
-        permissions.add("READ.ACCOUNTS.BASIC");
+        //permissions.add("READ.TRANSACTIONS.DETAIL");
+        //permissions.add("READ.ACCOUNTS.BASIC");
         //permissions.add("READ.ACCOUNTS.DETAIL");
-        permissions.add("READ.PAN");
-        permissions.add("READ.TRANSACTIONS.CREDITS");
+        //permissions.add("READ.PAN");
+        //permissions.add("READ.TRANSACTIONS.CREDITS");
         //permissions.add("READ.TRANSACTIONS.DEBITS");
 
-        consentDetails.setPermissions(permissions);
+        //consentDetails.setPermissions(permissions);
 
         //consentDetails.setInstructedAmount(instructedAmount);
-        //consentDetails.setLinkedAccounts(linkedAccounts);
+        consentDetails.setLinkedAccounts(linkedAccounts);
         //consentDetails.setCreditorAccount(creditorAccount);
         //consentDetails.setRemittanceInformation(remittanceInformation);
 
