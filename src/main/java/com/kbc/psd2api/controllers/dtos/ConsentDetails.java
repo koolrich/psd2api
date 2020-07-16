@@ -45,7 +45,7 @@ public class ConsentDetails {
     private String TransactionToDateTime = "2020-09-09T07:58:51Z";
 
     @JsonProperty("PaymentSubType")
-    private String PaymentSubType = "DomesticSingle";
+    private String PaymentSubType = "DomesticReoccuring";
 
     @JsonProperty("InstructedAmount")
     private InstructedAmount instructedAmount;
