@@ -45,6 +45,9 @@ public class ConsentDetails {
     @JsonProperty("TransactionToDateTime")
     private String TransactionToDateTime = "2020-09-09T07:58:51Z";
 
+    @JsonProperty("SOEndDate")
+    private String SOEndDate = "2020-10-10T07:48:55Z";
+
     @JsonProperty("PaymentSubType")
     private String PaymentSubType = "DomesticReoccuring";
 
