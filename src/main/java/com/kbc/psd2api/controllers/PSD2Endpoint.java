@@ -63,7 +63,7 @@ public class PSD2Endpoint {
         InstructedAmount instructedAmount = new InstructedAmount("20.00", "EUR");
         //List<LinkedAccount> linkedAccounts = Arrays.asList(new LinkedAccount("CurrentAccount", "IE10ICON99027012173"), new LinkedAccount("SavingsAccount", "IE55ICON99027011885911"));
         CreditorAccount creditorAccount = new CreditorAccount("IE10ICON99027012173", "Bob Clements");
-        RemittanceInformation remittanceInformation = new RemittanceInformation("Internal ops code 5120103", "FRESCO-037");
+        //RemittanceInformation remittanceInformation = new RemittanceInformation("Internal ops code 5120103", "FRESCO-037");
 
         //List<String> permissions = new ArrayList<>();
         //permissions.add("READ.BALANCES");
@@ -80,7 +80,7 @@ public class PSD2Endpoint {
         consentDetails.setInstructedAmount(instructedAmount);
         //consentDetails.setLinkedAccounts(linkedAccounts);
         consentDetails.setCreditorAccount(creditorAccount);
-        consentDetails.setRemittanceInformation(remittanceInformation);
+        //consentDetails.setRemittanceInformation(remittanceInformation);
 
         ConsentResponse consentResponse = new ConsentResponse();
         consentResponse.setConsentDetails(consentDetails);
