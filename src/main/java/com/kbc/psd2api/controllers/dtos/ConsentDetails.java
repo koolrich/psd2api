@@ -49,7 +49,8 @@ public class ConsentDetails {
     private String SOEndDate = "2020-10-10T07:48:55Z";
 
     @JsonProperty("PaymentSubType")
-    private String PaymentSubType = "DomesticReoccuring";
+    //private String PaymentSubType = "DomesticReoccuring";
+    private String PaymentSubType = "DomesticSingle";
 
     @JsonProperty("InstructedAmount")
     private InstructedAmount instructedAmount;
