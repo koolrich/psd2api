@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,7 @@ import com.kbc.psd2api.controllers.dtos.*;
 public class PSD2Endpoint {
 
     @GetMapping("/internal-access-Validate-Authorisation-Request")
-    public ResponseEntity<ValidateAuthorisationResponse> validateAuthorisation(HttpServletRequest httpServletRequest) {
+    public ResponseEntity<ValidateErrorResponse> validateAuthorisation(HttpServletRequest httpServletRequest) {
 
         String responseType = httpServletRequest.getHeader("response_type");
         System.out.println("response_type" + responseType);
@@ -38,18 +39,20 @@ public class PSD2Endpoint {
         String jwsToken = httpServletRequest.getHeader("request");
         System.out.println("request" + jwsToken);
 
-        if (!isAllPresent(responseType, clientId, redirectUrl, scope, jwsToken)){
+       /* if (!isAllPresent(responseType, clientId, redirectUrl, scope, jwsToken)){
             System.out.println("Not all mandatory fields present");
             return ResponseEntity.badRequest().body(new ValidateAuthorisationResponse());
-        }
+        }*/
 
-        ValidateAuthorisationResponse validateAuthorisationResponse = new ValidateAuthorisationResponse();
+        /*ValidateAuthorisationResponse validateAuthorisationResponse = new ValidateAuthorisationResponse();
         validateAuthorisationResponse.setClientId("2c7a008c946a11ea84800aee602f0000");
         validateAuthorisationResponse.setConsentScope("accounts");
         validateAuthorisationResponse.setTppApplicationName("Business Banking QA");
-        validateAuthorisationResponse.setConsentId("CNS20112D98X59NM"); 
+        validateAuthorisationResponse.setConsentId("CNS20112D98X59NM"); */
+
+        ValidateErrorResponse validateErrorResponse = new ValidateErrorResponse();
         
-        return ResponseEntity.ok(validateAuthorisationResponse);
+        return new ResponseEntity<ValidateErrorResponse>(validateErrorResponse, HttpStatus.UNAUTHORIZED );
     }
 
     @GetMapping("/internal-access/consents/{consentId}")
