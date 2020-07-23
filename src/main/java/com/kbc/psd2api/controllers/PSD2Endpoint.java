@@ -118,7 +118,7 @@ public class PSD2Endpoint {
         account.setAccountDetails("13046038 MICKEY MOUSE");
         account.setCurrency("EUR");
         account.setOdLimit(0);
-        account.setAccountTransRights("NO");
+        account.setAccountTransRights("YES");
         account.setCustomer("1000000013");
 
         accounts.add(account);
@@ -131,6 +131,44 @@ public class PSD2Endpoint {
         account.setAccountType("Cur Acc with OD");
         account.setCurrentBalance("279.77");
         account.setAccountIban("IE33ICON99027081452");
+        account.setSortCode("990270");
+        account.setAvailableBalance("279.80");
+        account.setAcctNumber("81452379");
+        account.setAccountDetails("81452379 MICKEY MOUSE");
+        account.setCurrency("EUR");
+        account.setOdLimit(0);
+        account.setAccountTransRights("NO");
+        account.setCustomer("1000025769");
+
+        accounts.add(account);
+
+        account = new Account();
+        account.setArrangementId("AA15052635LH");
+        account.setProductId("1002");
+        account.setAccountTitle("KBC Current Account");
+        account.setNickName("MICKEY MOUSE");
+        account.setAccountType("Cur Acc with OD");
+        account.setCurrentBalance("279.77");
+        account.setAccountIban("IE33ICON99027081489");
+        account.setSortCode("990270");
+        account.setAvailableBalance("279.80");
+        account.setAcctNumber("81452379");
+        account.setAccountDetails("81452379 MICKEY MOUSE");
+        account.setCurrency("EUR");
+        account.setOdLimit(0);
+        account.setAccountTransRights("YES");
+        account.setCustomer("1000025769");
+
+        accounts.add(account);
+
+        account = new Account();
+        account.setArrangementId("AA15052635LH");
+        account.setProductId("1002");
+        account.setAccountTitle("KBC Current Account");
+        account.setNickName("MICKEY MOUSE");
+        account.setAccountType("Cur Acc with OD");
+        account.setCurrentBalance("279.77");
+        account.setAccountIban("IE33ICON99027081892");
         account.setSortCode("990270");
         account.setAvailableBalance("279.80");
         account.setAcctNumber("81452379");
