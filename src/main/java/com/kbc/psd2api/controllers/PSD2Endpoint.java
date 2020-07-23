@@ -24,7 +24,7 @@ import com.kbc.psd2api.controllers.dtos.*;
 public class PSD2Endpoint {
 
     @GetMapping("/internal-access-Validate-Authorisation-Request")
-    public ResponseEntity<validateAuthorisationResponse> validateAuthorisation(HttpServletRequest httpServletRequest) {
+    public ResponseEntity<ValidateAuthorisationResponse> validateAuthorisation(HttpServletRequest httpServletRequest) {
 
         String responseType = httpServletRequest.getHeader("response_type");
         System.out.println("response_type" + responseType);
