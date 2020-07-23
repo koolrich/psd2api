@@ -24,7 +24,7 @@ import com.kbc.psd2api.controllers.dtos.*;
 public class PSD2Endpoint {
 
     @GetMapping("/internal-access-Validate-Authorisation-Request")
-    public ResponseEntity<ValidateErrorResponse> validateAuthorisation(HttpServletRequest httpServletRequest) {
+    public ResponseEntity<validateAuthorisationResponse> validateAuthorisation(HttpServletRequest httpServletRequest) {
 
         String responseType = httpServletRequest.getHeader("response_type");
         System.out.println("response_type" + responseType);
@@ -44,15 +44,16 @@ public class PSD2Endpoint {
             return ResponseEntity.badRequest().body(new ValidateAuthorisationResponse());
         }*/
 
-        /*ValidateAuthorisationResponse validateAuthorisationResponse = new ValidateAuthorisationResponse();
+        ValidateAuthorisationResponse validateAuthorisationResponse = new ValidateAuthorisationResponse();
         validateAuthorisationResponse.setClientId("2c7a008c946a11ea84800aee602f0000");
         validateAuthorisationResponse.setConsentScope("accounts");
         validateAuthorisationResponse.setTppApplicationName("Business Banking QA");
-        validateAuthorisationResponse.setConsentId("CNS20112D98X59NM"); */
+        validateAuthorisationResponse.setConsentId("CNS20112D98X59NM"); 
 
-        ValidateErrorResponse validateErrorResponse = new ValidateErrorResponse();
+        //ValidateErrorResponse validateErrorResponse = new ValidateErrorResponse();
         
-        return new ResponseEntity<ValidateErrorResponse>(validateErrorResponse, HttpStatus.UNAUTHORIZED );
+        //return new ResponseEntity<validateAuthorisationResponse>(validateErrorResponse, HttpStatus.UNAUTHORIZED );
+        return ResponseEntity.ok(validateAuthorisationResponse);
     }
 
     @GetMapping("/internal-access/consents/{consentId}")
