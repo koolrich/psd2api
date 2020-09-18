@@ -22,6 +22,7 @@ public class ConsentDetails {
 
     @JsonProperty("ConsentScope")
     //private String ConsentScope = "fundsconfirmations";
+    //private String ConsentScope = "accounts";
     private String ConsentScope = "payments";
 
     @JsonProperty("TPPApplicationName")
@@ -35,8 +36,10 @@ public class ConsentDetails {
 
     @JsonProperty("Status")
     private String Status = "AWAITING.AUTHORISATION";
+    //private String Status = "AUTHORISED";
 
     @JsonProperty("ExpirationDateTime")
+    //private String ExpirationDateTime = "2020-09-09T07:58:51Z";
     private String ExpirationDateTime = "2020-09-09T07:58:51Z";
 
     @JsonProperty("TransactionFromDateTime")
@@ -45,8 +48,15 @@ public class ConsentDetails {
     @JsonProperty("TransactionToDateTime")
     private String TransactionToDateTime = "2020-09-09T07:58:51Z";
 
+    @JsonProperty("SOStartDate")
+    private String SOStartDate = "2020-08-18";
+    
     @JsonProperty("SOEndDate")
     private String SOEndDate = "2020-10-10T07:48:55Z";
+    //private String SOEndDate;
+
+    @JsonProperty("SOFrequency")
+    private String SOFrequency = "Daily";
 
     @JsonProperty("PaymentSubType")
     //private String PaymentSubType = "DomesticReoccuring";

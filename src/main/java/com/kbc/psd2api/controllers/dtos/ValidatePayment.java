@@ -10,9 +10,9 @@ public class ValidatePayment {
     private String totalTxnWithCurrentTxn = "0";
     private String minimumSignatoryNo = "YES";
     private String companyDailyLimit = "5000.00";
-    private String dailyLimitCheckPassed;
+    private String dailyLimitCheckPassed = "YES";
     private String mandateNoOfAuth = "1";
     private String mandateLimitAmount = "2500.00";
-    private String mandateCheckPassed; 
+    private String mandateCheckPassed = "YES"; 
     
 }

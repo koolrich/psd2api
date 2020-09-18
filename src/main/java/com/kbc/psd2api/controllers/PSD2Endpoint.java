@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -46,14 +47,16 @@ public class PSD2Endpoint {
 
         ValidateAuthorisationResponse validateAuthorisationResponse = new ValidateAuthorisationResponse();
         validateAuthorisationResponse.setClientId("2c7a008c946a11ea84800aee602f0000");
-        validateAuthorisationResponse.setConsentScope("accounts");
+        //validateAuthorisationResponse.setConsentScope("fundsconfirmations");
+        validateAuthorisationResponse.setConsentScope("payments");
         validateAuthorisationResponse.setTppApplicationName("Business Banking QA");
         validateAuthorisationResponse.setConsentId("CNS20112D98X59NM"); 
 
-        //ValidateErrorResponse validateErrorResponse = new ValidateErrorResponse();
+        ValidateErrorResponse validateErrorResponse = new ValidateErrorResponse();
         
         //return new ResponseEntity<validateAuthorisationResponse>(validateErrorResponse, HttpStatus.UNAUTHORIZED );
         return ResponseEntity.ok(validateAuthorisationResponse);
+        //return ResponseEntity.notFound().build();//.body(new ValidateAuthorisationResponse());
     }
 
     @GetMapping("/internal-access/consents/{consentId}")
@@ -65,10 +68,10 @@ public class PSD2Endpoint {
         //consentDetails.setStatus("AUTHORISED");
         consentDetails.setStatus("AWAITING.AUTHORISATION");
         InstructedAmount instructedAmount = new InstructedAmount("20.00", "EUR");
-        //List<LinkedAccount> linkedAccounts = Arrays.asList(new LinkedAccount("CurrentAccount", "IE10ICON99027012173"), new LinkedAccount("SavingsAccount", "IE55ICON99027011885911"));
+        List<LinkedAccount> linkedAccounts = Arrays.asList(new LinkedAccount("CurrentAccount", "IE60ICON99027013046"), new LinkedAccount("SavingsAccount", "IE55ICON99027011885911"));
         CreditorAccount creditorAccount = new CreditorAccount("IE10ICON99027012173", "Bob Clements");
-        //RemittanceInformation remittanceInformation = new RemittanceInformation("Internal ops code 5120103", "FRESCO-037");
-        RemittanceInformation remittanceInformation = new RemittanceInformation("Internal ops code 5120103", null);
+        RemittanceInformation remittanceInformation = new RemittanceInformation("Reference", "Daily test 1");
+        //RemittanceInformation remittanceInformation = new RemittanceInformation("Internal ops code 5120103", null);
 
         //List<String> permissions = new ArrayList<>();
         //permissions.add("READ.BALANCES");
@@ -83,7 +86,7 @@ public class PSD2Endpoint {
         //consentDetails.setPermissions(permissions);
 
         consentDetails.setInstructedAmount(instructedAmount);
-        //consentDetails.setLinkedAccounts(linkedAccounts);
+        consentDetails.setLinkedAccounts(linkedAccounts);
         consentDetails.setCreditorAccount(creditorAccount);
         consentDetails.setRemittanceInformation(remittanceInformation);
 
@@ -96,11 +99,14 @@ public class PSD2Endpoint {
 
     @PatchMapping("/internal-access/consents/{consentId}")
     public ResponseEntity<?> authoriseConsent(@RequestBody AuthoriseConsentRequest authoriseConsentRequest, @PathVariable String consentId) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("ConsentId", consentId);
+        headers.set("Code", "dbca3e46-9ea8-4a0c-adaf-6ab5255b0415.49e9018f-7d1b-469f-99f9-5b68fa3b267c.8a0020ee-32dc-480c-9a2f-72dda1a86353");
         System.out.println("Received request: " + authoriseConsentRequest.toString());
-        return ResponseEntity.ok("received");
+        return new ResponseEntity<String>("", headers, HttpStatus.OK);
     }
 
-    @GetMapping("/accounts")
+    @GetMapping("/corp/!EXT.SMS.ACCOUNTS.SEE/acclist")
     public ResponseEntity<AccountDetails> getAccounts() {
         AccountDetails accountDetails = new AccountDetails();
         List<Account> accounts = new ArrayList<>();
@@ -199,7 +205,7 @@ public class PSD2Endpoint {
 
     }
 
-    @GetMapping("/corppymnt")
+    @GetMapping("/corppymt")
     public ResponseEntity<ValidatePaymentResponse> authoriseConsent() {
         ValidatePaymentResponse validatePaymentResponse = new ValidatePaymentResponse();
         ValidatePayment validatePayment = new ValidatePayment();
@@ -210,15 +216,15 @@ public class PSD2Endpoint {
         validatePayments.add(validatePayment);
 
         Map<String, Object> header = new HashMap<>();
-        Map <String, String> audit = new HashMap<>();
+        Map <String, Integer> audit = new HashMap<>();
 
-        audit.put("T24_time", "4043");
-        audit.put("parse_time", "22");
+        audit.put("T24_time", 182);
+        audit.put("parse_time", 0);
         header.put("audit", audit);
-        header.put("page_start", "1");
+        header.put("page_start", 1);
         header.put("page_token", "52e21c07-761a-43c4-818d-7c32bbf4f6c3");
-        header.put("total_size", "2");
-        header.put("page_size", "99");
+        header.put("total_size", 1);
+        header.put("page_size", 99);
 
         validatePaymentResponse.setHeader(header);
         validatePaymentResponse.setBody(validatePayments);
